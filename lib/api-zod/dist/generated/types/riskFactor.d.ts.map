@@ -1,0 +1,1 @@
+{"version":3,"file":"riskFactor.d.ts","sourceRoot":"","sources":["../../../src/generated/types/riskFactor.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;AACH,OAAO,KAAK,EAAE,kBAAkB,EAAE,MAAM,sBAAsB,CAAC;AAE/D,MAAM,WAAW,UAAU;IACzB,MAAM,EAAE,MAAM,CAAC;IACf,WAAW,EAAE,MAAM,CAAC;IACpB,QAAQ,EAAE,kBAAkB,CAAC;IAC7B,YAAY,EAAE,MAAM,CAAC;CACtB"}
