@@ -2,7 +2,7 @@ import { pgTable, serial, integer, text, boolean, timestamp, jsonb } from "drizz
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod/v4";
 
-export const alertsTable = pgTable("alerts", {
+export const alertsTable = pgTable("tf_alerts", {
   id: serial("id").primaryKey(),
   userId: integer("user_id").notNull(),
   sessionId: integer("session_id"),

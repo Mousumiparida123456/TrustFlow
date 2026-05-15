@@ -2,7 +2,7 @@ import { pgTable, serial, integer, text, boolean, timestamp } from "drizzle-orm/
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod/v4";
 
-export const sessionsTable = pgTable("sessions", {
+export const sessionsTable = pgTable("tf_sessions", {
   id: serial("id").primaryKey(),
   userId: integer("user_id").notNull(),
   sessionToken: text("session_token").notNull().unique(),
