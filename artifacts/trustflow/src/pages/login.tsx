@@ -34,11 +34,18 @@ export default function Login() {
   const loginMutation = useLogin();
   const otpMutation = useVerifyOtp();
 
+  const demoUsers = [
+    { username: "alice_johnson", risk: "low" },
+    { username: "bob_smith", risk: "medium" },
+    { username: "carol_white", risk: "high" },
+    { username: "eve_attacker", risk: "critical" },
+  ];
+
   const loginForm = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      username: "demo_user",
-      password: "password123",
+      username: "alice_johnson",
+      password: "demo123",
     },
   });
 
@@ -209,6 +216,39 @@ export default function Login() {
           <span className="text-xs font-mono text-muted-foreground">v0.1.0</span>
         </div>
       </div>
+
+      {/* Demo credentials panel */}
+      {step === "login" && (
+        <div className="w-full max-w-md mt-4 bg-card/60 border border-border rounded-xl p-4 relative z-10">
+          <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-3">Demo Accounts — click to fill</p>
+          <div className="grid grid-cols-2 gap-2">
+            {demoUsers.map((u) => {
+              const colors: Record<string, string> = {
+                low: "text-emerald-400 border-emerald-500/30 bg-emerald-500/5 hover:bg-emerald-500/10",
+                medium: "text-amber-400 border-amber-500/30 bg-amber-500/5 hover:bg-amber-500/10",
+                high: "text-orange-400 border-orange-500/30 bg-orange-500/5 hover:bg-orange-500/10",
+                critical: "text-red-400 border-red-500/30 bg-red-500/5 hover:bg-red-500/10",
+              };
+              return (
+                <button
+                  key={u.username}
+                  data-testid={`demo-user-${u.username}`}
+                  type="button"
+                  onClick={() => {
+                    loginForm.setValue("username", u.username);
+                    loginForm.setValue("password", "demo123");
+                  }}
+                  className={`text-left px-3 py-2 rounded-lg border font-mono text-xs transition-colors cursor-pointer ${colors[u.risk]}`}
+                >
+                  <div className="font-semibold truncate">{u.username}</div>
+                  <div className="text-[10px] uppercase opacity-70">{u.risk} risk</div>
+                </button>
+              );
+            })}
+          </div>
+          <p className="text-[10px] font-mono text-muted-foreground mt-3 text-center">All passwords: demo123</p>
+        </div>
+      )}
     </div>
   );
 }
