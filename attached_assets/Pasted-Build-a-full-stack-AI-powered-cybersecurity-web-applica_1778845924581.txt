@@ -1,0 +1,136 @@
+Build a full-stack AI-powered cybersecurity web application called "TrustFlow AI" for behavioral authentication in digital banking.
+
+Goal:
+Create a banking security system that continuously authenticates users based on behavior and generates a real-time trust/risk score to detect fraud, account takeover, and suspicious activity.
+
+Tech stack:
+Frontend:
+- React + Tailwind CSS
+- Modern banking dashboard UI
+- Responsive design
+
+Backend:
+- FastAPI (Python)
+- REST APIs
+- WebSocket support for live risk updates
+
+Database:
+- MongoDB
+
+AI/ML:
+- Python
+- Scikit-learn
+- Isolation Forest anomaly detection (initial model)
+- Modular design to later add LSTM/Autoencoder
+
+Required Features:
+
+1. Login simulation
+- Username/password login
+- Simulated OTP
+- Session management
+
+2. Behavioral data collection
+Capture:
+- Typing speed
+- Keystroke intervals
+- Mouse movement
+- Click patterns
+- Scroll speed
+- Session duration
+- Device/browser fingerprint
+- IP/location (mock if needed)
+
+3. Continuous authentication
+Continuously evaluate user behavior after login and update risk score in real time.
+
+4. Dynamic trust score
+Generate:
+0–30 → Safe
+31–60 → Medium risk
+61–100 → High risk
+
+Display:
+Current trust score
+Risk level
+Reasons contributing to risk
+
+5. Explainable AI dashboard
+Show:
+- Unusual typing behavior
+- New device
+- New location
+- Abnormal transaction amount
+- Suspicious browsing behavior
+
+Provide human-readable explanations.
+
+6. Adaptive authentication
+Based on risk:
+Low risk:
+→ Allow access
+
+Medium:
+→ Request OTP
+
+High:
+→ Request biometric verification simulation
+
+Critical:
+→ Block session and trigger alert
+
+7. Transaction fraud simulation
+Allow user to perform transactions.
+Detect anomalies:
+- Large amount
+- New beneficiary
+- Unusual timing
+- Different location
+
+Increase risk score accordingly.
+
+8. Fraud replay demo mode
+Provide two scenarios:
+Scenario A:
+Normal user
+
+Scenario B:
+Attacker simulation
+
+Show side-by-side risk differences.
+
+9. Admin dashboard
+Display:
+- Active users
+- Risk scores
+- Fraud alerts
+- Login attempts
+- Suspicious sessions
+- Heatmap of fraud attempts
+
+10. Alert system
+Generate alerts for:
+- Impossible travel
+- New device
+- Sudden behavior change
+- High-risk transaction
+
+11. Security
+- JWT authentication
+- Password hashing
+- API protection
+- Input validation
+
+Project requirements:
+- Clean folder structure
+- Commented code
+- README explaining setup
+- Sample dataset generation for behavior
+- Dummy users and simulated transactions
+- Ready to run locally
+
+Design:
+Create a modern fintech/cybersecurity interface with charts, trust score gauges, live updates, and professional banking visuals.
+
+Output:
+Generate the complete project structure and start implementing frontend, backend, APIs, database schema, AI model pipeline, and dashboard.
