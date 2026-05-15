@@ -96,7 +96,7 @@ router.get("/trust/history", async (req, res) => {
   history.push({
     timestamp: new Date().toISOString(),
     trustScore: session.trustScore,
-    riskLevel: session.riskLevel,
+    riskLevel: session.riskLevel as "low" | "medium" | "high" | "critical",
   });
 
   return res.json(history);
