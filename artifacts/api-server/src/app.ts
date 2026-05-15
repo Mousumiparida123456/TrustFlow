@@ -7,17 +7,18 @@ import { logger } from "./lib/logger";
 const app: Express = express();
 
 app.use(
-  pinoHttp({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (pinoHttp as any)({
     logger,
     serializers: {
-      req(req) {
+      req(req: { id: string; method: string; url?: string }) {
         return {
           id: req.id,
           method: req.method,
           url: req.url?.split("?")[0],
         };
       },
-      res(res) {
+      res(res: { statusCode: number }) {
         return {
           statusCode: res.statusCode,
         };
@@ -32,3 +33,4 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", router);
 
 export default app;
+
