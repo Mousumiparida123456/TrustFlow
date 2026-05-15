@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "buildCommand": "pnpm -w run typecheck:libs",
+  "buildCommand": "pnpm -w run vercel-build",
   "functions": {
-    "api/index.ts": {
+    "api/index.js": {
       "maxDuration": 30
     }
   },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/api/index.ts"
+      "dest": "/api/index.js"
     }
   ]
 }
